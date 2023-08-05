@@ -17,10 +17,7 @@ const ProjectList = ({ projects }) => {
       <NavUnlisted>
         {projects.map((project) => (
           <div className="row" key={project.id}>
-            <div className="two columns">
-              <p></p>
-            </div>
-            <div className="eight columns" style={{ justifyContent: "center" }}>
+            <div className="eight columns offset-by-two" style={{ justifyContent: "center" }}>
               <Link to={`/projects/${project.id}`}>
                 <div className="row">
                   <h2>{project.title}</h2>
@@ -42,9 +39,6 @@ const ProjectList = ({ projects }) => {
                   </div>
                 </div>
               </Link>
-            </div>
-            <div className="two columns">
-              <p></p>
             </div>
           </div>
         ))}
