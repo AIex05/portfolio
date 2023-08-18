@@ -19,46 +19,66 @@ const Home = () => {
               <button className="button">Download Resume</button>
             </Link>
             <div className="row icons">
-              <a href="https://github.com/AIex05" target="_blank">
-                <img
-                  className="icon"
-                  height="32"
-                  width="32"
-                  src="https://cdn.simpleicons.org/tencentqq/#15a5e8"
-                />
-              </a>
-              <a href="https://github.com/AIex05"  target="_blank">
-              <img
-                className="icon"
-                height="32"
-                width="32"
-                src="https://cdn.simpleicons.org/github/#15a5e8"
-              />
-              </a>
-              <a href="https://github.com/AIex05"  target="_blank">
-              <img
-                className="icon"
-                height="32"
-                width="32"
-                src="https://cdn.simpleicons.org/livechat/#15a5e8"
-              />
-              </a>
-              <a href="https://github.com/AIex05"  target="_blank">
-              <img
-                className="icon"
-                height="32"
-                width="32"
-                src="https://cdn.simpleicons.org/gmail/#15a5e8"
-              />
-              </a>
-              <a href="https://github.com/AIex05"  target="_blank">
-              <img
-                className="icon"
-                height="32"
-                width="32"
-                src="https://cdn.simpleicons.org/wechat/#15a5e8"
-              />
-              </a>
+              <div className="icon">
+                <div className="bubble shadow mini top iconText">1292860312</div>
+                <a onClick={() => {navigator.clipboard.writeText("1292860312")}} target="_blank">
+                  <img
+                    height="32"
+                    width="32"
+                    src="https://cdn.simpleicons.org/tencentqq/#15a5e8"
+                  />
+                </a>
+                <div className="clickToCopy">Click to Copy</div>
+              </div>
+              <div className="icon">
+                <div className="bubble shadow mini top iconText">AIex05</div>
+                <a onClick={() => {navigator.clipboard.writeText("AIex05")}} href="https://github.com/AIex05" target="_blank">
+                  <img
+                    id="github"
+                    height="32"
+                    width="32"
+                    src="https://cdn.simpleicons.org/github/#15a5e8"
+                  />
+                </a>
+                <div className="clickToCopy">Click to View</div>
+              </div>
+              <div className="icon">
+                <div className="bubble shadow mini top iconText">(774)-701-8877</div>
+                <a onClick={() => {navigator.clipboard.writeText("7747018877")}} href="sms:+12125550690&body=Hi. My name is" target="_blank">
+                  <img
+                    id="phone"
+                    height="32"
+                    width="32"
+                    src="https://cdn.simpleicons.org/livechat/#15a5e8"
+                  />
+                </a>
+                <div className="clickToCopy">Click to Text</div>
+              </div>
+              <div className="icon">
+              <div className="bubble shadow grow top iconText">yzhu8@wpi.edu</div>
+                <a onClick={() => {navigator.clipboard.writeText("yzhu8@wpi.edu")
+              window.location = 'mailto:yzhu8@wpi.edu'}}>
+                  <img
+                    id="gmail"
+                    height="32"
+                    width="32"
+                    src="https://cdn.simpleicons.org/gmail/#15a5e8"
+                  />
+                </a>
+                <div className="clickToCopy">Click to Mail</div>
+              </div>
+              <div className="icon">
+                <div className="bubble shadow mini top iconText">ZYT-Alex</div>
+                <a onClick={() => {navigator.clipboard.writeText("ZYT-Alex")}} target="_blank">
+                  <img
+                    id="wechat"
+                    height="32"
+                    width="32"
+                    src="https://cdn.simpleicons.org/wechat/#15a5e8"
+                  />
+                </a>
+                <div className="clickToCopy">Click to Copy</div>
+              </div>
             </div>
           </div>
           <div className="one-half column">

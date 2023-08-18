@@ -4,14 +4,6 @@ const ProjectList = ({ projects }) => {
   const NavUnlisted = styled.ul`
     text-decoration: none;
   `;
-  const StyledLink = styled(Link)`
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: black;
-    text-decoration: none;
-    align-items: center;
-  `;
   return (
     <div className="project-list">
       <NavUnlisted>

@@ -5,8 +5,6 @@ import {
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
-  ResponsiveContainer,
-  LabelList,
 } from "recharts";
 
 const overviewData = [
@@ -35,13 +33,13 @@ const overviewData = [
     subject: "Communication",
     A: 7,
     fullMark: 10,
-    description: "this is description",
+    description: "I am a outgoing person, I have lot of presentation experiences with porjects in classes, I am especially good at free question and answer part of the presentation",
   },
   {
     subject: "Creativity",
     A: 5,
     fullMark: 10,
-    description: "this is description",
+    description: "As a designer of my own website, the asthestic aspect of the website explains everything",
   },
 ];
 
@@ -57,31 +55,31 @@ const dsData = [
     subject: "Machine Learning",
     A: 9,
     fullMark: 10,
-    description: "this is description",
+    description: "With projects done in school related to Machine learning, including but not limited to predicting housing price and estimate housing price base on attributes of the house",
   },
   {
     subject: "Predictive Analytics",
     A: 9,
     fullMark: 10,
-    description: "this is description",
+    description: "With a large project done with Angelo Gordon that do prediction for housing price and housing market analysis, this is done by using ARIMA model to predict housing price, and we have access to database provided by the company and we received a high compliment",
   },
   {
     subject: "Data Visualization",
     A: 7.5,
     fullMark: 10,
-    description: "this is description",
+    description: "With experiences of presentations with power point, using Python and Power BI and other languages including JS.",
   },
   {
     subject: "Data Preparation",
     A: 6,
     fullMark: 10,
-    description: "this is description",
+    description: "Although cleaned data is given for lots of cases, I still have enough training throw class projects",
   },
   {
     subject: "Natural Language Processing",
     A: 6,
     fullMark: 10,
-    description: "this is description",
+    description: "As the first field approached, I have one big project related to NLP, I am intrested into the field.",
   },
 ];
 
@@ -90,37 +88,37 @@ const csData = [
     subject: "Python",
     A: 9,
     fullMark: 10,
-    description: "this is description",
+    description: "As a data science major, I mastered Python without a doubt I used python for all kinds of machine learning with pytorch and pandas and ...",
   },
   {
     subject: "C",
     A: 5,
     fullMark: 10,
-    description: "this is description",
+    description: "Have one class related to C, I am not a master of C but I am able to use C to write simple programs and projects",
   },
   {
     subject: "Java",
     A: 8,
     fullMark: 10,
-    description: "this is description",
+    description: "used java since 2020, started in class, but ",
   },
   {
     subject: "R",
     A: 6,
     fullMark: 10,
-    description: "this is description",
+    description: "Used in various projects ",
   },
   {
     subject: "JS",
     A: 8,
     fullMark: 10,
-    description: "this is description",
+    description: "Major language for web design, used in this personal webiste",
   },
   {
     subject: "SQL",
     A: 10,
     fullMark: 10,
-    description: "this is description",
+    description: "Used a lot for basic data gathering and basic analysis for data",
   },
 ];
 
