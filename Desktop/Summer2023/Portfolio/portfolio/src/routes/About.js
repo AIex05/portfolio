@@ -193,7 +193,7 @@ const About = () => {
         </div>
         <section {...getCollapseProps()}>
           <div className="row">
-            <div
+            {/* <div
               className="row"
               style={{
                 display: "flex",
@@ -290,8 +290,8 @@ const About = () => {
                 width="500px"
                 height="666px"
               />
-            </div>
-            <div
+            </div> */}
+            {/* <div
               className="row"
               style={{
                 display: "flex",
@@ -304,7 +304,7 @@ const About = () => {
                 width="500px"
                 height="666px"
               />
-            </div>
+            </div> */}
             <div
               className="row"
               style={{
@@ -520,8 +520,8 @@ const About = () => {
         </div>
       </div>
       <CollapsibleSki props={props}></CollapsibleSki>
-      <CollapsibleSports props={props}></CollapsibleSports>
-      <CollapsibleGame props={props}></CollapsibleGame>
+      {/* <CollapsibleSports props={props}></CollapsibleSports>
+      <CollapsibleGame props={props}></CollapsibleGame> */}
       <CollapsibleTravel props={props}></CollapsibleTravel>
     </div>
   );
