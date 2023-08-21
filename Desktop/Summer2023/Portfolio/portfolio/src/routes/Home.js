@@ -20,19 +20,32 @@ const Home = () => {
             </Link>
             <div className="row icons">
               <div className="icon">
-                <div className="bubble shadow mini top iconText">1292860312</div>
-                <a onClick={() => {navigator.clipboard.writeText("1292860312")}} target="_blank">
+                <div className="bubble shadow mini top iconText">
+                  Yueting (Alex) Zhu
+                </div>
+                <a
+                  // onClick={() => {
+                  //   navigator.clipboard.writeText("1292860312");
+                  //   alert("Copied to the Clipboard");
+                  // }}
+                  href="https://www.linkedin.com/in/alexzyt"
+                  target="_blank"
+                >
                   <img
                     height="32"
                     width="32"
-                    src="https://cdn.simpleicons.org/tencentqq/#15a5e8"
+                    src="https://cdn.simpleicons.org/LinkedIn/#0A66C2"
+                    style={{cursor:"pointer"}}
                   />
                 </a>
                 <div className="clickToCopy">Click to Copy</div>
               </div>
               <div className="icon">
                 <div className="bubble shadow mini top iconText">AIex05</div>
-                <a onClick={() => {navigator.clipboard.writeText("AIex05")}} href="https://github.com/AIex05" target="_blank">
+                <a
+                  href="https://github.com/AIex05"
+                  target="_blank"
+                >
                   <img
                     id="github"
                     height="32"
@@ -43,8 +56,16 @@ const Home = () => {
                 <div className="clickToCopy">Click to View</div>
               </div>
               <div className="icon">
-                <div className="bubble shadow mini top iconText">(774)-701-8877</div>
-                <a onClick={() => {navigator.clipboard.writeText("7747018877")}} href="sms:+12125550690&body=Hi. My name is" target="_blank">
+                <div className="bubble shadow mini top iconText">
+                  (774)-701-8877
+                </div>
+                <a
+                  onClick={() => {
+                    navigator.clipboard.writeText("7747018877");
+                    alert("Copied to the Clipboard");
+                  }}
+                  href="sms:+12125550690"
+                >
                   <img
                     id="phone"
                     height="32"
@@ -55,26 +76,41 @@ const Home = () => {
                 <div className="clickToCopy">Click to Text</div>
               </div>
               <div className="icon">
-              <div className="bubble shadow grow top iconText">yzhu8@wpi.edu</div>
-                <a onClick={() => {navigator.clipboard.writeText("yzhu8@wpi.edu")
-              window.location = 'mailto:yzhu8@wpi.edu'}}>
+                <div className="bubble shadow grow top iconText">
+                  yzhu8@wpi.edu
+                </div>
+                <a
+                  onClick={() => {
+                    navigator.clipboard.writeText("yzhu8@wpi.edu");
+                    alert("Copied to the Clipboard");
+                    window.location = "mailto:yzhu8@wpi.edu";
+                  }}
+                >
                   <img
                     id="gmail"
                     height="32"
                     width="32"
                     src="https://cdn.simpleicons.org/gmail/#15a5e8"
+                    style={{cursor:"pointer"}}
                   />
                 </a>
                 <div className="clickToCopy">Click to Mail</div>
               </div>
               <div className="icon">
                 <div className="bubble shadow mini top iconText">ZYT-Alex</div>
-                <a onClick={() => {navigator.clipboard.writeText("ZYT-Alex")}} target="_blank">
+                <a
+                  onClick={() => {
+                    navigator.clipboard.writeText("ZYT-Alex");
+                    alert("Copied to the Clipboard");
+                  }}
+                  target="_blank"
+                >
                   <img
                     id="wechat"
                     height="32"
                     width="32"
                     src="https://cdn.simpleicons.org/wechat/#15a5e8"
+                    style={{cursor:"pointer"}}
                   />
                 </a>
                 <div className="clickToCopy">Click to Copy</div>
