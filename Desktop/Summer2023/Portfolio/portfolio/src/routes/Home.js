@@ -61,8 +61,7 @@ const Home = () => {
                 </div>
                 <a
                   onClick={() => {
-                    navigator.clipboard.writeText("7747018877");
-                    alert("Copied to the Clipboard");
+                    navigator.clipboard.writeText("7747018877").then(function(){alert("Copied to the Clipboard");})
                   }}
                   href="sms:+12125550690"
                 >
@@ -81,9 +80,8 @@ const Home = () => {
                 </div>
                 <a
                   onClick={() => {
-                    navigator.clipboard.writeText("yzhu8@wpi.edu");
-                    alert("Copied to the Clipboard");
                     window.location = "mailto:yzhu8@wpi.edu";
+                    // navigator.clipboard.writeText("yzhu8@wpi.edu").then(function(){alert("Copied to the Clipboard");});
                   }}
                 >
                   <img
@@ -100,8 +98,7 @@ const Home = () => {
                 <div className="bubble shadow mini top iconText">ZYT-Alex</div>
                 <a
                   onClick={() => {
-                    navigator.clipboard.writeText("ZYT-Alex");
-                    alert("Copied to the Clipboard");
+                    navigator.clipboard.writeText("ZYT-Alex").then(function(){alert("Copied to the Clipboard");});
                   }}
                   target="_blank"
                 >
