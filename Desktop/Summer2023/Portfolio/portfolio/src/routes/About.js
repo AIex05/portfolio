@@ -1,8 +1,30 @@
 import { useCollapse } from "react-collapsed";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { s3 } from "../functions/getS3";
+import useImage from "../hooks/useImage";
 const About = () => {
   const props = { duration: 1000 };
-  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse(props);
+
+  const displayImage = (input, height="600px", width="auto", alt="null") => {
+    return (
+      <div
+        className="row"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "20px",
+        }}
+      >
+        {!input.image && <p>Loading...</p>}
+        {input.error && <p>{input.error}</p>}
+        {input.image && (
+          <img src={URL.createObjectURL(
+            new Blob([input.image.buffer], { type: input.info.ContentType } /* (1) */)
+          )} alt={alt} width={width} height={height} />
+        )}
+        
+      </div>
+    );
+  };
 
   function CollapsibleSki({ props }) {
     const { getCollapseProps, getToggleProps, isExpanded } = useCollapse(props);
@@ -22,126 +44,19 @@ const About = () => {
         </div>
         <section {...getCollapseProps()}>
           <div className="row">
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/SkiPic1.jpeg")}
-                alt="SkiPic1.jpeg"
-                width="500px"
-                height="666px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/SkiPic2.jpeg")}
-                alt="SkiPic1.jpeg"
-                width="500px"
-                height="666px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/SkiPic3.jpeg")}
-                alt="SkiPic1.jpeg"
-                width="500px"
-                height="666px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/SkiPic4.jpeg")}
-                alt="SkiPic1.jpeg"
-                width="666px"
-                height="500px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/SkiPic5.jpeg")}
-                alt="SkiPic1.jpeg"
-                width="500px"
-                height="666px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/RidingOnCable.png")}
-                alt="SkiPic1.jpeg"
-                width="500px"
-                height="666px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/WachussetSki.png")}
-                alt="SkiPic1.jpeg"
-                width="500px"
-                height="666px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/SkiSelfie.jpeg")}
-                alt="SkiPic1.jpeg"
-                width="666px"
-                height="500px"
-              />
-            </div>
+            {displayImage(useImage("files/image/SkiPic1.jpeg", s3))}
+            {displayImage(useImage("files/image/SkiPic2.jpeg", s3))}
+            {displayImage(useImage("files/image/SkiPic3.jpeg", s3))}
+            {displayImage(useImage("files/image/SkiPic4.jpeg", s3))}
+            {displayImage(useImage("files/image/SkiPic5.jpeg", s3))}
+            {displayImage(useImage("files/image/RidingOnCable.png", s3))}
+            {displayImage(useImage("files/image/WachussetSki.png", s3))}
+            {displayImage(useImage("files/image/SkiSelfie.jpeg", s3))}
+            {displayImage(useImage("files/image/SkiPic2.jpeg", s3))}
+            {displayImage(useImage("files/image/SkiPic2.jpeg", s3))}
+            {displayImage(useImage("files/image/SkiPic2.jpeg", s3))}
+            {displayImage(useImage("files/image/SkiPic2.jpeg", s3))}
+            {displayImage(useImage("files/image/SkiPic2.jpeg", s3))}
           </div>
         </section>
       </div>
@@ -167,12 +82,8 @@ const About = () => {
         <section {...getCollapseProps()}>
           <CollapsibleTravelHokaido props={props}></CollapsibleTravelHokaido>
           <CollapsibleTravelNara props={props}></CollapsibleTravelNara>
-          <div className="row">
-            <h5>Tokyo</h5>
-          </div>
-          <div className="row">
-            <h5>Osaka</h5>
-          </div>
+          <CollapsibleTravelTokyo props={props}></CollapsibleTravelTokyo>
+          <CollapsibleTravelOsaka props={props}></CollapsibleTravelOsaka>
         </section>
       </div>
     );
@@ -183,7 +94,14 @@ const About = () => {
 
     return (
       <div className="container">
-        <div className="row" style={{ display: "flex", alignContent: "left", marginBottom:"10px" }}>
+        <div
+          className="row"
+          style={{
+            display: "flex",
+            alignContent: "left",
+            marginBottom: "10px",
+          }}
+        >
           <div className="ten columns">
             <h5>Hokaido 北海道</h5>
           </div>
@@ -193,160 +111,17 @@ const About = () => {
         </div>
         <section {...getCollapseProps()}>
           <div className="row">
-            {/* <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Hokaido/DSCF1275.JPG")}
-                width="666px"
-                height="500px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Hokaido/IMG_1556.jpeg")}
-                width="666px"
-                height="500px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Hokaido/IMG_1823.jpeg")}
-                width="666px"
-                height="500px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Hokaido/IMG_2432.jpeg")}
-                width="500px"
-                height="666px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Hokaido/IMG_1954.jpeg")}
-                width="666px"
-                height="500px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Hokaido/IMG_1909.jpeg")}
-                width="500px"
-                height="666px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Hokaido/IMG_1195.jpeg")}
-                width="500px"
-                height="666px"
-              />
-            </div> */}
-            {/* <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Hokaido/IMG_1505.jpeg")}
-                width="500px"
-                height="666px"
-              />
-            </div> */}
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Hokaido/IMG_1787.jpeg")}
-                width="500px"
-                height="666px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Hokaido/IMG_1601.jpeg")}
-                width="500px"
-                height="666px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Hokaido/IMG_1767.jpeg")}
-                width="1439px"
-                height="500px"
-              />
-            </div>
+          {displayImage(useImage("files/image/Hokaido/DSCF1275.JPG", s3))}
+          {displayImage(useImage("files/image/Hokaido/IMG_1556.jpeg", s3))}
+          {displayImage(useImage("files/image/Hokaido/IMG_1823.jpeg", s3))}
+          {displayImage(useImage("files/image/Hokaido/IMG_2432.jpeg", s3))}
+          {displayImage(useImage("files/image/Hokaido/IMG_1954.jpeg", s3))}
+          {displayImage(useImage("files/image/Hokaido/IMG_1909.jpeg", s3))}
+          {displayImage(useImage("files/image/Hokaido/IMG_1195.jpeg", s3))}
+          {displayImage(useImage("files/image/Hokaido/IMG_1505.jpeg", s3))}
+          {displayImage(useImage("files/image/Hokaido/IMG_1787.jpeg", s3))}
+          {displayImage(useImage("files/image/Hokaido/IMG_1601.jpeg", s3))}
+          {displayImage(useImage("files/image/Hokaido/IMG_1767.jpeg", s3))}
           </div>
         </section>
       </div>
@@ -358,7 +133,7 @@ const About = () => {
 
     return (
       <div className="container">
-        <div className="row" style={{ display: "flex", alignContent: "left" }}>
+        <div className="row" style={{ display: "flex", alignContent: "left",marginBottom: "10px", }}>
           <div className="ten columns">
             <h5>Nara　奈良</h5>
           </div>
@@ -368,34 +143,62 @@ const About = () => {
         </div>
         <section {...getCollapseProps()}>
           <div className="row">
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Nara/IMG_2169.jpeg")}
-                width="666px"
-                height="500px"
-              />
-            </div>
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <img
-                src={require("../files/image/Nara/IMG_2219.jpeg")}
-                width="666px"
-                height="500px"
-              />
-            </div>
+          {displayImage(useImage("files/image/Nara/IMG_2169.jpeg", s3))}
+          {displayImage(useImage("files/image/Nara/IMG_2219.jpeg", s3))}
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  function CollapsibleTravelTokyo({ props }) {
+    const { getCollapseProps, getToggleProps, isExpanded } = useCollapse(props);
+
+    return (
+      <div className="container">
+        <div className="row" style={{ display: "flex", alignContent: "left",marginBottom: "10px", }}>
+          <div className="ten columns">
+            <h5>Tokyo 東京</h5>
+          </div>
+          <button {...getToggleProps()} class="button-primary">
+            {isExpanded ? "Collapse" : "Expand"}
+          </button>
+        </div>
+        <section {...getCollapseProps()}>
+          <div className="row">
+          {displayImage(useImage("files/image/Tokyo/IMG_0969.jpeg", s3))}
+          {displayImage(useImage("files/image/Tokyo/IMG_1071.jpeg", s3))}
+          {displayImage(useImage("files/image/Tokyo/IMG_1102.jpeg", s3))}
+          {displayImage(useImage("files/image/Tokyo/IMG_1144.jpeg", s3))}
+          {displayImage(useImage("files/image/Tokyo/IMG_2956.jpeg", s3))}
+          {displayImage(useImage("files/image/Tokyo/IMG_3034.jpeg", s3))}
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  function CollapsibleTravelOsaka({ props }) {
+    const { getCollapseProps, getToggleProps, isExpanded } = useCollapse(props);
+
+    return (
+      <div className="container">
+        <div className="row" style={{ display: "flex", alignContent: "left" ,marginBottom: "10px",}}>
+          <div className="ten columns">
+            <h5>Osaka 大阪</h5>
+          </div>
+          <button {...getToggleProps()} class="button-primary">
+            {isExpanded ? "Collapse" : "Expand"}
+          </button>
+        </div>
+        <section {...getCollapseProps()}>
+          <div className="row">
+          {displayImage(useImage("files/image/Osaka/IMG_2304.jpeg", s3))}
+          {displayImage(useImage("files/image/Osaka/IMG_2637.jpeg", s3))}
+          {displayImage(useImage("files/image/Osaka/IMG_2646.jpeg", s3))}
+          {displayImage(useImage("files/image/Osaka/IMG_2014.jpeg", s3))}
+          {displayImage(useImage("files/image/Osaka/IMG_2065.jpeg", s3))}
+          {displayImage(useImage("files/image/Osaka/IMG_2029.jpeg", s3))}
           </div>
         </section>
       </div>
