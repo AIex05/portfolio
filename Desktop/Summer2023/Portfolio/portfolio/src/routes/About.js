@@ -52,11 +52,6 @@ const About = () => {
             {displayImage(useImage("files/image/RidingOnCable.png", s3))}
             {displayImage(useImage("files/image/WachussetSki.png", s3))}
             {displayImage(useImage("files/image/SkiSelfie.jpeg", s3))}
-            {displayImage(useImage("files/image/SkiPic2.jpeg", s3))}
-            {displayImage(useImage("files/image/SkiPic2.jpeg", s3))}
-            {displayImage(useImage("files/image/SkiPic2.jpeg", s3))}
-            {displayImage(useImage("files/image/SkiPic2.jpeg", s3))}
-            {displayImage(useImage("files/image/SkiPic2.jpeg", s3))}
           </div>
         </section>
       </div>
